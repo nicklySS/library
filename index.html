@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        html, body {
+        html,
+        body {
             margin: 0;
             padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+
         }
+
         header {
             height: 75px;
             width: 100%;
             margin: 0;
             margin-bottom: 20px;
             background-color: ghostwhite;
-            display: flex; /* добавлено */
-            align-items: center; /* добавлено */
-            justify-content: space-between; /* добавлено */
+            display: flex;
+            /* добавлено */
+            align-items: center;
+            /* добавлено */
+            justify-content: space-between;
+            /* добавлено */
         }
-        header > .flex-container {
+
+        header>.flex-container {
             display: flex;
             flex: 1;
             width: 100%;
@@ -29,16 +38,18 @@
             padding-left: 50px;
             padding-right: 50px;
         }
+
         #header-logo {
-            font-family: Arial, Helvetica, sans-serif;
             font-size: 30px;
             color: blue;
             user-select: none;
         }
+
         #header-buttons {
             user-select: none;
         }
-        #header-buttons > button {
+
+        #header-buttons>button {
             border: none;
             width: 40px;
             height: 40px;
@@ -47,20 +58,24 @@
             color: white;
             font-weight: bolder;
         }
-        #header-buttons > button:nth-child(1) {
+
+        #header-buttons>button:nth-child(1) {
             border-top-left-radius: 20px;
-            border-bottom-left-radius:  20px;
+            border-bottom-left-radius: 20px;
         }
-        #header-buttons > button:nth-child(2) {
+
+        #header-buttons>button:nth-child(2) {
             border-top-right-radius: 20px;
-            border-bottom-right-radius:  20px;
+            border-bottom-right-radius: 20px;
         }
+
         #cards {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 50px;
         }
+
         .card {
             flex: 1;
             text-align: center;
@@ -70,24 +85,125 @@
             min-width: 250px;
             height: 300px;
         }
-        
+
+        .modal {
+            position: fixed;
+            transition: 1s;
+            left: -100%;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 500px;
+            max-width: 80%;
+        }
+
+        .modal-dialog {
+            position: relative;
+        }
+
+        .modal-content {
+            padding: 20px;
+        }
+
+        .modal-header {
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+        }
+
+        .modal-title {
+            font-size: 18px;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-footer {
+            padding: 10px 20px;
+            border-top: 1px solid #ccc;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+        }
+
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            margin-right: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="flex-container">
             <div id="header-logo">Library</div>
             <div id="header-buttons">
-                <button onclick="showAddWinow()">+</button>
+                <button onclick="showAddWindow()">+</button>
                 <button>-</button>
             </div>
         </div>
     </header>
 
     <div class="container">
+        <div class="modal fade" id="add-book-modal" tabindex="-1" aria-labelledby="add-book-modal-label"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="add-book-modal-label">Добавить книгу</h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/add-book" method="post">
+                            <div class="form-group">
+                                <label for="name">Название</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Название книги">
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Автор</label>
+                                <input type="text" class="form-control" id="author" name="author"
+                                    placeholder="Автор книги">
+                            </div>
+                            <div class="form-group">
+                                <label for="pages">Количество страниц</label>
+                                <input type="number" class="form-control" id="pages" name="pages"
+                                    placeholder="Количество страниц">
+                            </div>
+                            <div class="form-group">
+                                <label for="read">Прочитано</label>
+                                <input type="checkbox" class="form-check-input" id="read" name="read">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddWindow()">Отмена</button>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="cards"></div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
