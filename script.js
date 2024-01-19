@@ -45,5 +45,9 @@ myLibrary.forEach((book) => {
 });
 
 function showAddWindow() {
+   document.querySelector(".modal").style.cssText = "left: 0; display: block;";
+}
+function closeAddWindow() {
+    document.querySelector(".modal").style.cssText = "left: -100%;";
     
 }
