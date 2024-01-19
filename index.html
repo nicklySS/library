@@ -6,6 +6,55 @@
     <title>Library</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            height: 75px;
+            width: 100%;
+            margin: 0;
+            margin-bottom: 20px;
+            background-color: ghostwhite;
+            display: flex; /* добавлено */
+            align-items: center; /* добавлено */
+            justify-content: space-between; /* добавлено */
+        }
+        header > .flex-container {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+        #header-logo {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 30px;
+            color: blue;
+            user-select: none;
+        }
+        #header-buttons {
+            user-select: none;
+        }
+        #header-buttons > button {
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 30px;
+            background-color: blue;
+            color: white;
+            font-weight: bolder;
+        }
+        #header-buttons > button:nth-child(1) {
+            border-top-left-radius: 20px;
+            border-bottom-left-radius:  20px;
+        }
+        #header-buttons > button:nth-child(2) {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius:  20px;
+        }
         #cards {
             display: flex;
             flex-wrap: wrap;
@@ -21,9 +70,20 @@
             min-width: 250px;
             height: 300px;
         }
+        
     </style>
 </head>
 <body>
+    <header>
+        <div class="flex-container">
+            <div id="header-logo">Library</div>
+            <div id="header-buttons">
+                <button onclick="showAddWinow()">+</button>
+                <button>-</button>
+            </div>
+        </div>
+    </header>
+
     <div class="container">
         <div id="cards"></div>
     </div>

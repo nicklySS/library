@@ -43,3 +43,7 @@ myLibrary.forEach((book) => {
 
     document.getElementById("cards").appendChild(card);
 });
+
+function showAddWindow() {
+    
+}
