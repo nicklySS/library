@@ -163,15 +163,14 @@
     </header>
 
     <div class="container">
-        <div class="modal fade" id="add-book-modal" tabindex="-1" aria-labelledby="add-book-modal-label"
-            aria-hidden="true">
+        <div class="modal" id="add-book-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="add-book-modal-label">Добавить книгу</h5>
                     </div>
                     <div class="modal-body">
-                        <form action="/add-book" method="post">
+                        <form action="#" method="post" id="modal-form">
                             <div class="form-group">
                                 <label for="name">Название</label>
                                 <input type="text" class="form-control" id="name" name="name"
@@ -194,8 +193,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddWindow()">Отмена</button>
-                        <button type="submit" class="btn btn-primary">Добавить</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeAddWindow()">Отмена</button>
+                        <button type="submit" class="btn btn-primary" onclick="addBookToLibrary()">Добавить</button>
                     </div>
                 </div>
             </div>
