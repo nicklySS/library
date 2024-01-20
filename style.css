@@ -80,7 +80,7 @@ html,
         .modal {
             position: fixed;
             transition: 0.5s;
-            left: 0%;
+            left: -100%;
             background-color: #fff;
             border: 1px solid #ccc;
             border-radius: 5px;
